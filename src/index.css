@@ -1,0 +1,17 @@
+
+body {
+  margin: 0;
+  /* display: flex; */
+  place-items: center;
+  text-align: center;  
+  min-width: 300px;
+  padding-left: 20px;
+  padding-right: 20px;
+  /* min-height: 2%; */
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+

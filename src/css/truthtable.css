@@ -1,0 +1,82 @@
+
+/* .tt-container {  
+  /* max-width: 600px; */
+  /* margin: auto auto; */
+  /* padding: 20px;
+  background-color: #fdf6ec; 
+  border-radius: 12px;
+  box-shadow: 0 15px 10px rgba(3, 26, 48, 0.1);
+  font-family: Arial, sans-serif;
+} */
+
+.tt-container {
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+
+/* no of variables  */
+.tt-select-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: larger;
+  gap: 10px;
+  
+  
+  
+}
+
+.tt-select-container select {
+  padding: 5px 10px;
+  font-size: 20px;
+  background-color: #cfaaa3;
+}
+
+/* columns */
+.tt-table {
+  width: 90%;
+  margin: auto;  
+  border-collapse: collapse; 
+  text-align: center;  
+  background: rgba(173, 113, 70, 0.2);  
+}
+
+
+
+.tt-table th,
+.tt-table th {
+  background: #3e2723;
+  color: #f0f0f0;
+  padding: 8px;
+}
+
+.tt-table td {
+  border: 1px solid #3e2723;
+  padding: 6px;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.tt-input {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border: 1px solid #8b4513;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.tt-table td.var-cell {
+  border: 1px solid #8b4513; /* brown border */
+  border-radius: 4px;
+  background: #fff8f0;       /* light cream box so numbers are visible */
+  color: #2e1c0f;            /* dark brown text */
+  font-weight: bold;
+ 
+  text-align: center;
+}

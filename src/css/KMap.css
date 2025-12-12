@@ -1,0 +1,38 @@
+
+.kmap-table {
+  border-collapse: collapse;
+  margin: 20px auto;
+}
+
+.kmap-cell {
+  border: 1px solid #000;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.kmap-cell.highlight {
+  background-color: #4caf50; /* green for SOP 1's */
+  color: white;
+}
+
+.kmap-cell.highlight-pos {
+  background-color: #f44336; /* red for POS 0's */
+  color: white;
+}
+
+.kmap-label-col,
+.kmap-label-row {
+  border: 1px solid #000;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 16px; /* smaller than .kmap-cell */
+  font-weight: normal;
+  background-color: #f0f0f0; /* light background to separate */
+}
+

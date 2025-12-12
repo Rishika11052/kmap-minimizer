@@ -1,0 +1,36 @@
+.df-container {
+  max-width: 100%;
+  margin: 30px auto;
+  padding: 10px;
+  background-color: #f0f4f8;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(138, 15, 15, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.df-title {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #ad3e3e;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.df-function {
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+  margin: 8px 0;
+  font-size: 18px;
+}
+
+.df-label {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.df-value {
+  color: #06172b;
+  word-break: break-word; /* break long expressions */
+}

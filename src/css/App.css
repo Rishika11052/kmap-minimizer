@@ -1,0 +1,138 @@
+/* truthtable.css */
+.App{
+  text-align: center;
+  /* font-family: Arial, sans-serif; */
+  background-image: url('src/assets/fullbackground.png');
+  min-height: 100vh;
+  padding: 20px;
+ 
+}
+/* General button styling */
+button {
+  background-color: #66718e; /* green */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 15px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #45a049; /* slightly darker green on hover */
+}
+
+/* Specific styling for Compute button */
+button.compute-btn {
+  background-color: #eaeef2; /* blue */
+}
+
+button.compute-btn:hover {
+  background-color: #007f04; /* darker blue */
+}
+
+/* General button styling */
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Compute button style */
+button.compute-btn {
+  background-color: #421e0e;
+  margin-top: 20px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+}
+
+button.compute-btn:hover {
+  background-color: #875132;
+}
+
+.options-screen-container {
+  display: flex;
+  flex-direction: column; /* stack options and button vertically */
+  align-items: center;    /* center horizontally */
+  margin-top: 50px;
+}
+
+
+.back-button-container {
+  margin-top: 30px; /* space between option boxes and back button */
+}
+/* Options screen styling */
+.options-screen {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap; /* boxes wrap on small screens */
+  justify-content: center;
+}
+
+.option-box {
+  border: 2px solid #030a0f;
+  padding: 50px 80px;
+  text-align: center;
+  font-size: 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s, color 0.2s;
+}
+
+.option-box:hover {
+  background-color: #916647;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Result screen styling */
+.result-screen {
+  margin-top: 30px;
+}
+
+.back-btn {
+  background-color: #f44336; /* red */
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
+}
+
+.back-btn:hover {
+  background-color: #da190b;
+}
+
+.expression-box {
+  border: 2px solid #9257c2;   /* blue border */
+  background-color: #cc99ff;   /* light blue background */
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 25px;
+  margin-bottom: 20px;
+  word-wrap: break-word;        /* wrap long expressions */
+  max-width: 100%;               /* optional: keep box from being too wide */
+  text-align: center;           /* optional: center text */
+}
+
+.verilog-box {
+  border: 2px solid #4caf50;
+  background-color: #f9fff9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: left;
+  font-family: monospace;
+  white-space: pre-wrap; /* keep formatting */
+}
+
+
