@@ -2,9 +2,11 @@
 .App{
   text-align: center;
   /* font-family: Arial, sans-serif; */
-  background-image: url('src/assets/fullbackground.png');
+  background-image: url('src/assets/fullBackground2.png');
   min-height: 100vh;
   padding: 20px;
+  color: #fffdfd;
+  background-size: cover;
  
 }
 /* General button styling */
@@ -89,11 +91,13 @@ button.compute-btn:hover {
   border-radius: 12px;
   cursor: pointer;
   transition: transform 0.2s, background-color 0.2s, color 0.2s;
+  background-color: #422c1c;
+  color: white;
 }
 
 .option-box:hover {
-  background-color: #916647;
-  color: white;
+  background-color: #c9beb9;
+  color: rgb(41, 27, 18);
   transform: scale(1.05);
 }
 
