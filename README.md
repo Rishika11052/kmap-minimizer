@@ -60,7 +60,9 @@ Built with **React 19 + TypeScript + Vite**, it provides an interactive interfac
 ##Installation and Setup
 
 # Clone the repository
-git clone https://github.com/<your-username>/kmap-minimizer.git
+```
+git clone 'https://github.com/Rishika11052/kmap-minimizer.git' 
+```
 ```
 cd kmap-minimizer
 ```
