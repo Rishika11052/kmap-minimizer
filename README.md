@@ -10,7 +10,7 @@ Built with **React 19 + TypeScript + Vite**, it provides an interactive interfac
 ## 🚀 Features
 
 - Supports **2, 3, 4 and 5 -variable** K-Maps  
-- **Interactive UI** to toggle cells (1, 0)  
+- **Interactive UI** to toggle cells to give input(1, 0)  
 - **Instant Boolean simplification** and color-coded grouping  
 - Clean, responsive layout
 - Deployed seamlessly on **Vercel**
