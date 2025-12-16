@@ -10,7 +10,7 @@ import "./css/App.css";
 
 function App() {
   const [truthTableValues, setTruthTableValues] = useState<string[]>([]);
-  const [numVariables] = useState(2); // can later make dynamic
+  const numVariables = Math.round(Math.log2(truthTableValues.length));
   const [screen, setScreen] = useState<"input" | "options" | "result" | "KMAP"|"verilog">("input");
   const [selectedOption, setSelectedOption] = useState<"SOP" | "POS" | "">("");
   const [expression, setExpression] = useState("");
@@ -102,7 +102,9 @@ function App() {
       )}
 
       {screen === "KMAP" && (
+        
         <div className="kmap-screen">
+
           <h3>K-map ({kmapHighlight})</h3>
           <KMap
             truthTable={truthTableValues}
