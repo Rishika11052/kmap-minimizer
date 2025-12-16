@@ -1,7 +1,10 @@
 export function generateSOPMermaid(sop: string): string {
-  if (!sop || sop.trim() === "0") return "graph TD\nOUT[No 1s in SOP]";
+  if (!sop) return "graph TD\nOUT[No expression]";
+  if (sop.trim() === "0") return "graph TD\nOUT[0]";
+  if (sop.trim() === "1") return "graph TD\nOUT[1]";
 
-  const lines: string[] = ["graph TD"];
+
+  const lines: string[] = ["graph LR"];
   const input = sop.trim();
 
   // Split on "+" for SOP terms
@@ -33,33 +36,29 @@ export function generateSOPMermaid(sop: string): string {
     });
 
     // connect literals into AND gate
-    nodes.forEach(n => lines.push(`${n} --> ${andId}[AND]`));
-    andOutputs.push(andId);
-  });
-
-  const orId = "OR0";
-
-  if (andOutputs.length === 0) {
-    // Edge case: single variable like "A" or "A'"
-    const lone = input.replace(/\s+/g, "");
-    if (lone.length === 0) return "graph TD\nOUT[No 1s in SOP]";
-
-    const hasNot = lone.endsWith("'");
-    const varName = hasNot ? lone.slice(0, -1) : lone;
-    const nodeId = `${varName}_0_0`;
-    lines.push(`${nodeId}[${varName}]`);
-    if (hasNot) {
-      const notId = `NOT_${varName}_0_0`;
-      lines.push(`${nodeId} --> ${notId}[NOT ${varName}]`);
-      lines.push(`${notId} --> ${orId}[OR]`);
+    if (nodes.length === 1) {
+      // Single literal term: no AND gate needed
+      andOutputs.push(nodes[0]);
     } else {
-      lines.push(`${nodeId} --> ${orId}[OR]`);
+      // Multiple literals: use AND gate
+      nodes.forEach(n => lines.push(`${n} --> ${andId}[AND]`));
+      andOutputs.push(andId);
     }
-  } else {
+
+  });  
+
+  if (andOutputs.length === 1) {
+    // Single term → direct output
+    lines.push(`${andOutputs[0]} --> OUT[Output]`);
+  } else if (andOutputs.length > 1) {
+    // Multiple terms → OR gate required
+    const orId = "OR0";
     andOutputs.forEach(andId => lines.push(`${andId} --> ${orId}[OR]`));
+    lines.push(`${orId} --> OUT[Output]`);
   }
 
-  lines.push(`${orId} --> OUT[Output]`);
+
+  // lines.push(`${orId} --> OUT[Output]`);
   return lines.join("\n");
 }
 
@@ -69,7 +68,7 @@ export function generateSOPMermaid(sop: string): string {
 export function generatePOSMermaid(pos: string): string {
   if (!pos || pos.trim() === "1") return "graph TD\nOUT[No 0s in POS]";
 
-  const lines: string[] = ["graph TD"];
+  const lines: string[] = ["graph LR"];
   const input = pos.trim();
 
   // 1) Try to extract parenthesized clauses first: "(...)".
@@ -112,41 +111,33 @@ export function generatePOSMermaid(pos: string): string {
       if (hasNot) {
         const notId = `NOT_${varName}_${i}_${j}`;
         // unique NOT node label so Mermaid doesn't collapse them
-        lines.push(`${nodeId} --> ${notId}[NOT ${varName}]`);
+        lines.push(`${nodeId} --> ${notId}[NOT]`);
         nodes.push(notId);
       } else {
         nodes.push(nodeId);
       }
     });
 
-    // connect literals (or their NOTs) into OR gate
-    nodes.forEach(n => lines.push(`${n} --> ${termId}[OR]`));
-    orOutputs.push(termId);
+    if (nodes.length === 1) {
+      // Single literal → no OR gate
+      orOutputs.push(nodes[0]);
+    } else {
+      // Multiple literals → OR gate needed
+      nodes.forEach(n => lines.push(`${n} --> ${termId}[OR]`));
+      orOutputs.push(termId);
+    }
+
   });
 
-  const andId = "AND0";
-
-  if (orOutputs.length === 0) {
-    // Edge case: input might be a lone variable like "A" or "A'"
-    const lone = input.replace(/\s+/g, "");
-    if (lone.length === 0) return "graph TD\nOUT[No 0s in POS]";
-
-    const hasNot = lone.endsWith("'");
-    const varName = hasNot ? lone.slice(0, -1) : lone;
-    const nodeId = `${varName}_0_0`;
-    lines.push(`${nodeId}[${varName}]`);
-    if (hasNot) {
-      const notId = `NOT_${varName}_0_0`;
-      lines.push(`${nodeId} --> ${notId}[NOT ${varName}]`);
-      lines.push(`${notId} --> ${andId}[AND]`);
-    } else {
-      lines.push(`${nodeId} --> ${andId}[AND]`);
-    }
-  } else {
+  if (orOutputs.length === 1) {
+    // Single clause → no AND gate
+    lines.push(`${orOutputs[0]} --> OUT[Output]`);
+  } else if (orOutputs.length > 1) {
+    const andId = "AND0";
     orOutputs.forEach(orId => lines.push(`${orId} --> ${andId}[AND]`));
+    lines.push(`${andId} --> OUT[Output]`);
   }
 
-  lines.push(`${andId} --> OUT[Output]`);
   return lines.join("\n");
 }
 
