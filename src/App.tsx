@@ -125,9 +125,10 @@ function App() {
           <h3>Generated Verilog Code</h3>
           <pre className="verilog-box">
             {generateVerilog(
-              expression || generateSOP(truthTableValues, numVariables), // default to SOP if none selected
-              selectedOption || "SOP",
-              numVariables
+              "",
+              "SOP",
+              numVariables,
+              truthTableValues
             )}
           </pre>
           <div style={{ marginTop: "20px" }}>
