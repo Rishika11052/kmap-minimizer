@@ -2,11 +2,11 @@
   max-width: 800px;
   margin: 20px auto;
   padding: 15px;
-  background-color: #f0f4f8;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  background-color: #fcf8f2;
+  border-radius: 10px; 
   font-family: Arial, sans-serif;
 }
+  
 
 .diagram-title {
   text-align: center;

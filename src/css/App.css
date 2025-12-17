@@ -11,21 +11,9 @@
   background-repeat: no-repeat;
  
 }
-/* General button styling */
-button {
-  background-color: #66718e; /* green */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 15px;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
 
 button:hover {
-  background-color: #45a049; /* slightly darker green on hover */
+  background-color: #11d91b; /* slightly darker green on hover */
 }
 
 /* Specific styling for Compute button */
@@ -39,7 +27,7 @@ button.compute-btn:hover {
 
 /* General button styling */
 button {
-  background-color: #4caf50;
+  background-color:  #421e0e ;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -51,7 +39,7 @@ button {
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #875132;
 }
 
 /* Compute button style */
@@ -85,17 +73,58 @@ button.compute-btn:hover {
   justify-content: center;
 }
 
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 250px);
+  row-gap: 40px;
+  column-gap: 40px;
+  justify-content: center;
+  
+}
+
 .option-box {
   border: 2px solid #030a0f;
-  padding: 50px 80px;
+  padding: 50px 80px;  
   text-align: center;
-  font-size: 24px;
+  font-size: 20px;
   border-radius: 12px;
   cursor: pointer;
   transition: transform 0.2s, background-color 0.2s, color 0.2s;
   background-color: #422c1c;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+@media (max-width: 600px) {
+  .options-grid {
+    /* Switches from 2 columns to 1 column */
+    grid-template-columns: 1fr; 
+    
+    /* Optional: Add some padding so the boxes don't touch the screen edges */
+    /* padding: 20px 20px;  */
+    
+    /* Optional: Adjust gap for a tighter mobile look */
+    row-gap: 20px; 
+  }
+
+  .option-box {
+    min-height: 150px;
+   
+    /* padding: 40px 20px;  */
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't break the width */
+  }
+
+  .option-box:active, 
+  .option-box:hover {
+    background-color: #c9beb9;
+    color: rgb(41, 27, 18);
+    transform: scale(0.98); /* Slight shrink on tap feels more like a physical button */
+  }
+}
+
 
 .option-box:hover {
   background-color: #c9beb9;
@@ -112,6 +141,7 @@ button.compute-btn:hover {
   background-color: #f44336; /* red */
   font-family: 'Times New Roman', Times, serif;
   font-size: large;
+  
 }
 
 .back-btn:hover {
@@ -119,20 +149,21 @@ button.compute-btn:hover {
 }
 
 .expression-box {
-  border: 2px solid #9257c2;   /* blue border */
-  background-color: #cc99ff;   /* light blue background */
+  border: 2px solid #540891;   /* blue border */
+  background-color: #fcf8f2;   /* light blue background */
   padding: 15px;
   border-radius: 10px;
   font-size: 25px;
   margin-bottom: 20px;
   word-wrap: break-word;        /* wrap long expressions */
   max-width: 100%;               /* optional: keep box from being too wide */
-  text-align: center;           /* optional: center text */
+  text-align: center;    
+  color: black;       /* optional: center text */
 }
 
 .verilog-box {
-  border: 2px solid #4caf50;
-  background-color: #f9fff9;
+  border: 2px solid #43301c;
+  background-color: #fcf8f2;
   color: #000000;
   padding: 15px;
   border-radius: 8px;

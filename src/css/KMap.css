@@ -5,7 +5,7 @@
 }
 
 .kmap-cell {
-  border: 1px solid #000;
+  border: 1px solid #8f3714;
   width: 100px;
   height: 100px;
   text-align: center;
@@ -15,13 +15,13 @@
 }
 
 .kmap-cell.highlight {
-  background-color: #4caf50; /* green for SOP 1's */
-  color: white;
+  background-color: #f5e8d8; /* green for SOP 1's */
+  color: #421e0e;
 }
 
 .kmap-cell.highlight-pos {
   background-color: #f44336; /* red for POS 0's */
-  color: white;
+  color: rgb(167, 39, 39);
 }
 
 .kmap-label-col,
@@ -33,6 +33,6 @@
   vertical-align: middle;
   font-size: 16px; /* smaller than .kmap-cell */
   font-weight: normal;
-  background-color: #b0b0b0; /* light background to separate */
+  background-color: #391f11; /* light background to separate */
 }
 

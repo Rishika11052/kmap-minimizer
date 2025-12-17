@@ -14,8 +14,28 @@ function App() {
   const [screen, setScreen] = useState<"input" | "options" | "result" | "KMAP"|"verilog">("input");
   const [selectedOption, setSelectedOption] = useState<"SOP" | "POS" | "">("");
   const [expression, setExpression] = useState("");
-  const [kmapHighlight, setKmapHighlight] = useState<"SOP" | "POS">("SOP");
+  // const [kmapHighlight, setKmapHighlight] = useState<"SOP" | "POS">("SOP");
 
+  // 1. Add this function inside the App component, before the return statement
+  const handleCompute = () => {
+    // Check if every value in the current state is empty or just default
+    const isTableEmpty = truthTableValues.length === 0 || 
+                        truthTableValues.every(val => val === "" || val === null);
+
+    if (isTableEmpty) {
+      alert("Please enter values in the truth table first!");
+      return; // This stops the app from moving to the 'options' screen
+    }
+
+    setScreen("options");
+  };
+
+  // 2. To prevent "ghost" values from previous usage, 
+  // update your "Back to Truth Table" buttons to clear the state:
+  const handleBackToInput = () => {
+    setTruthTableValues([]); // Resets the data
+    setScreen("input");      // Goes back
+  };
 
   // Handle clicking SOP or POS
   const handleOptionSelect = (option: "SOP" | "POS") => {
@@ -37,36 +57,42 @@ function App() {
       {screen === "input" && (
         <>
           <TruthTableInput onValuesChange={setTruthTableValues} />
-          <button className="compute-btn" onClick={() => setScreen("options")}>
+          <button className="compute-btn" onClick={handleCompute}>
             Compute
           </button>
         </>
       )}
 
+
       {/* --- Options Screen --- */}
       {screen === "options" && (
         <div className="options-screen-container">
-          <div className="options-screen">
+          
+          <div className="options-grid">                
             <div className="option-box" onClick={() => handleOptionSelect("SOP")}>
               <h2>SOP</h2>
-            </div>
+            </div>          
             <div className="option-box" onClick={() => handleOptionSelect("POS")}>
               <h2>POS</h2>
-            </div>
+            </div>             
             <div className="option-box" onClick={() => setScreen("verilog")}>
               <h2>Verilog</h2>
             </div>
-            <div className="option-box" onClick={() => { setKmapHighlight("SOP"); setScreen("KMAP"); }}>
-              <h2>K-map SOP</h2>
-            </div>
-            <div className="option-box" onClick={() => { setKmapHighlight("POS"); setScreen("KMAP"); }}>
-              <h2>K-map POS</h2>
-            </div>
-
+            <div
+              className="option-box"
+              onClick={() => {
+                if (!selectedOption) {
+                  setSelectedOption("SOP");
+                }
+                setScreen("KMAP");
+              }}
+            >
+              <h2>K-map</h2>
+            </div>            
           </div>
 
           <div className="back-button-container">
-            <button className="back-btn" onClick={() => setScreen("input")}>
+            <button className="back-btn" onClick={handleBackToInput}>
               Back to Truth Table
             </button>
           </div>
@@ -105,11 +131,11 @@ function App() {
         
         <div className="kmap-screen">
 
-          <h3>K-map ({kmapHighlight})</h3>
+          <h3>K-map ({"SOP"})</h3>
           <KMap
             truthTable={truthTableValues}
             numVariables={numVariables}
-            highlight={kmapHighlight} // will now highlight 1's or 0's
+            highlight={"SOP"} // will now highlight 1's or 0's
           />
 
           <div style={{ marginTop: "20px" }}>
