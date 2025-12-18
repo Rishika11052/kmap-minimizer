@@ -1,8 +1,7 @@
 interface OptionsScreenProps {
   onSelectSOP: () => void;
   onSelectPOS: () => void;
-  onSelectKMapSOP: () => void;
-  onSelectKMapPOS: () => void;
+  onSelectKMap: () => void;
   onSelectVerilog: () => void;
   onBackToInput: () => void;
   onReset?: () => void;
@@ -11,8 +10,7 @@ interface OptionsScreenProps {
 export default function OptionsScreen({
   onSelectSOP,
   onSelectPOS,
-  onSelectKMapSOP,
-  onSelectKMapPOS,
+  onSelectKMap,
   onSelectVerilog,
   onBackToInput,
   onReset,
@@ -29,11 +27,8 @@ export default function OptionsScreen({
         <div className="option-box" onClick={onSelectVerilog}>
           <h2>Verilog</h2>
         </div>
-        <div className="option-box" onClick={onSelectKMapSOP}>
-          <h2>K-map SOP</h2>
-        </div>
-        <div className="option-box" onClick={onSelectKMapPOS}>
-          <h2>K-map POS</h2>
+        <div className="option-box" onClick={onSelectKMap}>
+          <h2>K-map</h2>
         </div>
       </div>
 

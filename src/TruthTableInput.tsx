@@ -87,38 +87,41 @@ const TruthTableInput: React.FC<TruthTableInputProps> = ({
         </select>
       </div>
 
-      <table className="tt-table">
-        <thead>
-          <tr>
-            {variableLabels.map((label, i) => (
-              <th key={i}>{label}</th>
-            ))}
-            <th>X</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, rowIndex) => (
-            <tr key={rowIndex}>
-              {row.map((val, colIndex) => (
-                <td key={colIndex} className="var-cell">
-                  {val}
-                </td>
+      <div 
+        className={`tt-table-wrapper ${rows.length > 8 ? 'scrollable' : ''}`}
+      >
+        <table className="tt-table">
+          <thead>
+            <tr>
+              {variableLabels.map((label, i) => (
+                <th key={i}>{label}</th>
               ))}
-              <td 
-                className="var-cell" 
-                onClick={() => {
-                  const currentVal = outputValues[rowIndex] || "0";
-                  const newVal = currentVal === "0" ? "1" : "0";
-                  handleOutputChange(rowIndex, newVal);
-                }}
-                style={{ cursor: "pointer", userSelect: "none" }}
-              >
-                {outputValues[rowIndex] || "0"}
-              </td>
+              <th>X</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {rows.map((row, rowIndex) => (
+              <tr key={rowIndex}>
+                {row.map((val, colIndex) => (
+                  <td key={colIndex} className="var-cell">
+                    {val}
+                  </td>
+                ))}
+                <td 
+                  className="var-cell input-cell" 
+                  onClick={() => {
+                    const currentVal = outputValues[rowIndex] || "0";
+                    const newVal = currentVal === "0" ? "1" : "0";
+                    handleOutputChange(rowIndex, newVal);
+                  }}
+                >
+                  {outputValues[rowIndex] || "0"}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

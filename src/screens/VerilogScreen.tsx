@@ -14,7 +14,7 @@ export default function VerilogScreen({ onBackToOptions }: VerilogScreenProps) {
       <pre className="verilog-box">
         {generateVerilog("", "SOP", numVariables, truthTableValues)}
       </pre>
-      <div style={{ marginTop: "20px" }}>
+      <div>
         <button onClick={onBackToOptions}>Back to Options</button>
       </div>
     </div>

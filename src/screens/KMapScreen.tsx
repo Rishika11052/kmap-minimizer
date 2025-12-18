@@ -16,14 +16,13 @@ export default function KMapScreen({
 
   return (
     <div className="kmap-screen">
-      <h3>K-map ({highlightMode})</h3>
+      <h3>K-map</h3>
       <KMap
         truthTable={truthTableValues}
         numVariables={numVariables}
         highlight={highlightMode}
       />
-
-      <div style={{ marginTop: "20px" }}>
+      <div>
         <button onClick={onBackToOptions}>Back to Options</button>
         <button onClick={onBackToInput}>Back to Truth Table</button>
       </div>

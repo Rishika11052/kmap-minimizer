@@ -17,8 +17,7 @@ export function useAppNavigation() {
         setScreen("result");
     }, []);
 
-    const navigateToKMapWithOption = useCallback((option: "SOP" | "POS") => {
-        setSelectedOption(option);
+    const navigateToKMap = useCallback(() => {
         setScreen("KMAP");
     }, []);
 
@@ -41,7 +40,7 @@ export function useAppNavigation() {
         navigateToInput,
         navigateToOptions,
         navigateToResult,
-        navigateToKMapWithOption,
+        navigateToKMap,
         navigateToVerilog,
         resetToInput,
         selectOption,

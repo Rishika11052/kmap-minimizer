@@ -14,7 +14,7 @@ function AppContent() {
     selectedOption,
     navigateToOptions,
     navigateToResult,
-    navigateToKMapWithOption,
+    navigateToKMap,
     navigateToVerilog,
     navigateToInput,
     resetToInput,
@@ -44,8 +44,7 @@ function AppContent() {
           <OptionsScreen
             onSelectSOP={() => handleOptionSelect("SOP")}
             onSelectPOS={() => handleOptionSelect("POS")}
-            onSelectKMapSOP={() => navigateToKMapWithOption("SOP")}
-            onSelectKMapPOS={() => navigateToKMapWithOption("POS")}
+            onSelectKMap={navigateToKMap}
             onSelectVerilog={navigateToVerilog}
             onBackToInput={navigateToInput}
             onReset={handleResetToInput}
@@ -64,7 +63,7 @@ function AppContent() {
       case "KMAP":
         return (
           <KMapScreen
-            highlightMode={selectedOption === "POS" ? "POS" : "SOP"}
+            highlightMode="SOP"
             onBackToOptions={navigateToOptions}
             onBackToInput={navigateToInput}
           />
@@ -81,7 +80,9 @@ function AppContent() {
   return (
     <div className="App">
       <h1>KMAP Minimizer</h1>
-      {renderScreen()}
+      <div className="frosted-wrapper">
+        {renderScreen()}
+      </div>
     </div>
   );
 }

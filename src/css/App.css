@@ -1,10 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* Typography */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Comfortaa', cursive;
+}
+
+/* Main title styling */
+.App>h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(0, 0, 0, 0.5);
+  background: rgba(66, 30, 14, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 15px 40px;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  margin: 0;
+}
+
 /* truthtable.css */
-.App{
+.App {
   text-align: center;
-  background-image: url('/fullBackground2.png'); 
+  background-image: url('/fullBackground2.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -16,22 +42,24 @@
   justify-content: space-evenly;
 }
 
-button:hover {
-  background-color: #11d91b; /* slightly darker green on hover */
-}
-
-/* Specific styling for Compute button */
-button.compute-btn {
-  background-color: #eaeef2; /* blue */
-}
-
-button.compute-btn:hover {
-  background-color: #007f04; /* darker blue */
+/* Frosted glass wrapper */
+.frosted-wrapper {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  width: 80%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 /* General button styling */
 button {
-  background-color:  #421e0e ;
+  background-color: #421e0e;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -40,6 +68,7 @@ button {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
+  font-family: 'Roboto', sans-serif;
 }
 
 button:hover {
@@ -60,35 +89,41 @@ button.compute-btn:hover {
 
 .options-screen-container {
   display: flex;
-  flex-direction: column; /* stack options and button vertically */
-  align-items: center;    /* center horizontally */
+  flex-direction: column;
+  /* stack options and button vertically */
+  align-items: center;
+  /* center horizontally */
   margin-top: 50px;
 }
 
 
 .back-button-container {
-  margin-top: 30px; /* space between option boxes and back button */
+  margin-top: 30px;
+  /* space between option boxes and back button */
 }
+
 /* Options screen styling */
 .options-screen {
   display: flex;
   gap: 50px;
-  flex-wrap: wrap; /* boxes wrap on small screens */
+  flex-wrap: wrap;
+  /* boxes wrap on small screens */
   justify-content: center;
 }
 
 .options-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 250px);
-  row-gap: 40px;
-  column-gap: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
   justify-content: center;
-  
+  align-items: center;
+  width: 70%;
+  max-width: 900px;
 }
 
 .option-box {
   border: 2px solid #030a0f;
-  padding: 50px 80px;  
+  padding: 50px 80px;
   text-align: center;
   font-size: 20px;
   border-radius: 12px;
@@ -99,33 +134,36 @@ button.compute-btn:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Roboto', sans-serif;
 }
 
 @media (max-width: 600px) {
   .options-grid {
     /* Switches from 2 columns to 1 column */
-    grid-template-columns: 1fr; 
-    
+    grid-template-columns: 1fr;
+
     /* Optional: Add some padding so the boxes don't touch the screen edges */
     /* padding: 20px 20px;  */
-    
+
     /* Optional: Adjust gap for a tighter mobile look */
-    row-gap: 20px; 
+    row-gap: 20px;
   }
 
   .option-box {
     min-height: 150px;
-   
+
     /* padding: 40px 20px;  */
     width: 100%;
-    box-sizing: border-box; /* Ensures padding doesn't break the width */
+    box-sizing: border-box;
+    /* Ensures padding doesn't break the width */
   }
 
-  .option-box:active, 
+  .option-box:active,
   .option-box:hover {
     background-color: #c9beb9;
     color: rgb(41, 27, 18);
-    transform: scale(0.98); /* Slight shrink on tap feels more like a physical button */
+    transform: scale(0.98);
+    /* Slight shrink on tap feels more like a physical button */
   }
 }
 
@@ -138,14 +176,49 @@ button.compute-btn:hover {
 
 /* Result screen styling */
 .result-screen {
-  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.result-content {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.expression-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.result-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.diagram-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.result-screen button {
+  font-family: 'Comfortaa', serif;
 }
 
 .back-btn {
-  background-color: #f44336; /* red */
-  font-family: 'Times New Roman', Times, serif;
+  background-color: #f44336;
+  /* red */
+  font-family: 'Comfortaa', cursive;
   font-size: large;
-  
+  font-weight: 600;
 }
 
 .back-btn:hover {
@@ -153,16 +226,42 @@ button.compute-btn:hover {
 }
 
 .expression-box {
-  border: 2px solid #540891;   /* blue border */
-  background-color: #fcf8f2;   /* light blue background */
+  border: 2px solid #540891;
+  /* blue border */
+  background-color: #fcf8f2;
+  /* light blue background */
   padding: 15px;
   border-radius: 10px;
   font-size: 25px;
   margin-bottom: 20px;
-  word-wrap: break-word;        /* wrap long expressions */
-  max-width: 100%;               /* optional: keep box from being too wide */
-  text-align: center;    
-  color: black;       /* optional: center text */
+  word-wrap: break-word;
+  /* wrap long expressions */
+  max-width: 100%;
+  /* optional: keep box from being too wide */
+  text-align: center;
+  color: black;
+  /* optional: center text */
+}
+
+.verilog-screen h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.kmap-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.kmap-screen h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .verilog-box {
@@ -174,7 +273,6 @@ button.compute-btn:hover {
   margin-top: 20px;
   text-align: left;
   font-family: monospace;
-  white-space: pre-wrap; /* keep formatting */
+  white-space: pre-wrap;
+  /* keep formatting */
 }
-
-

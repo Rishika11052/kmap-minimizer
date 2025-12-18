@@ -1,38 +1,97 @@
+.kmap-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Scrollable wrapper for K-map table */
+.kmap-table-wrapper {
+  max-height: calc(4 * 100px + 40px);
+  /* 4 data rows + header row */
+  overflow-y: auto;
+  overflow-x: auto;
+  border-radius: 12px;
+  margin: 0 auto;
+}
+
+/* Custom scrollbar styling */
+.kmap-table-wrapper::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.kmap-table-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 248, 240, 0.3);
+  border-radius: 10px;
+}
+
+.kmap-table-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(135, 81, 50, 0.6);
+  border-radius: 10px;
+}
+
+.kmap-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(135, 81, 50, 0.8);
+}
 
 .kmap-table {
-  border-collapse: collapse;
-  margin: 20px auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .kmap-cell {
-  border: 1px solid #8f3714;
   width: 100px;
   height: 100px;
   text-align: center;
   vertical-align: middle;
   font-weight: bold;
   font-size: 28px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #2e1c0f;
+  transition: background 0.15s ease;
 }
 
 .kmap-cell.highlight {
-  background-color: #f5e8d8; /* green for SOP 1's */
-  color: #421e0e;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #2e1c0f;
 }
 
 .kmap-cell.highlight-pos {
-  background-color: #f44336; /* red for POS 0's */
-  color: rgb(167, 39, 39);
+  background-color: #f44336;
+  color: rgb(255, 255, 255);
 }
 
 .kmap-label-col,
 .kmap-label-row {
-  border: 1px solid #000;
   width: 40px;
   height: 40px;
   text-align: center;
   vertical-align: middle;
-  font-size: 16px; /* smaller than .kmap-cell */
-  font-weight: normal;
-  background-color: #391f11; /* light background to separate */
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #421e0e;
+  color: white;
+  position: sticky;
 }
 
+.kmap-label-col {
+  top: 0;
+  z-index: 10;
+}
+
+.kmap-label-row {
+  left: 0;
+  z-index: 10;
+}
+
+.kmap-table thead th:first-child {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background-color: #421e0e;
+}

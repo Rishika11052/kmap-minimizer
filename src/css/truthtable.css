@@ -1,19 +1,13 @@
-
-/* .tt-container {  
-  /* max-width: 600px; */
-  /* margin: auto auto; */
-  /* padding: 20px;
-  background-color: #fdf6ec; 
-  border-radius: 12px;
-  box-shadow: 0 15px 10px rgba(3, 26, 48, 0.1);
-  font-family: Arial, sans-serif;
-} */
-
 .tt-container {
   background: none;
   box-shadow: none;
   padding: 0;
   border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  justify-content: space-evenly;
 }
 
 
@@ -23,60 +17,292 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
-  font-size: larger;
-  gap: 10px;
-  
-  
-  
+  font-size: 1.3rem;
+  font-weight: 600;
+  gap: 15px;
+  color: white;
 }
 
 .tt-select-container select {
-  padding: 5px 10px;
-  font-size: 20px;
-  background-color: #cfaaa3;
+  padding: 8px 15px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #421e0e;
+  border: 2px solid rgba(66, 30, 14, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Roboto', sans-serif;
+}
+
+.tt-select-container select:hover {
+  background-color: white;
+  border-color: #421e0e;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tt-select-container select:focus {
+  outline: none;
+  border-color: #875132;
+  box-shadow: 0 0 0 3px rgba(135, 81, 50, 0.2);
+}
+
+/* Scrollable table wrapper */
+.tt-table-wrapper {
+  overflow-x: hidden;
+  border-radius: 12px;
+  margin: 0 auto;
+}
+
+.tt-table-wrapper.scrollable {
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
+/* Custom scrollbar styling */
+.tt-table-wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+
+.tt-table-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 248, 240, 0.3);
+  border-radius: 10px;
+}
+
+.tt-table-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(135, 81, 50, 0.6);
+  border-radius: 10px;
+}
+
+.tt-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(135, 81, 50, 0.8);
 }
 
 /* columns */
 .tt-table {
-  width: 90%;
-  margin: auto;  
-  border-collapse: collapse; 
-  text-align: center;  
-  background: rgba(173, 113, 70, 0.2);  
+  width: 100%;
+  margin: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  animation: popIn 0.3s ease;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
+@keyframes popIn {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
 
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
-.tt-table th,
 .tt-table th {
-  background: #3e2723;
-  color: #f0f0f0;
-  padding: 8px;
+  background: #421e0e;
+  color: white;
+  font-weight: 600;
+  padding: 12px 18px;
+  text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.tt-table th:first-child {
+  border-top-left-radius: 12px;
+}
+
+.tt-table th:last-child {
+  border-top-right-radius: 12px;
 }
 
 .tt-table td {
-  border: 1px solid #3e2723;
-  padding: 6px;
-  color: #000000;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.tt-input {
-  width: 40px;
-  height: 40px;
+  padding: 10px 16px;
   text-align: center;
-  border: 1px solid #8b4513;
-  border-radius: 4px;
-  font-size: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .tt-table td.var-cell {
-  border: 1px solid #8b4513; /* brown border */
-  border-radius: 4px;
-  background: #fff8f0;       /* light cream box so numbers are visible */
-  color: #2e1c0f;            /* dark brown text */
+  background: rgba(255, 248, 240, 0.85);
+  color: #2e1c0f;
   font-weight: bold;
- 
-  text-align: center;
+}
+
+/* Alternating row colors */
+.tt-table tbody tr:nth-child(even) td {
+  background: rgba(255, 248, 240, 0.95);
+}
+
+.tt-table tbody tr:nth-child(odd) td {
+  background: rgba(245, 235, 220, 0.95);
+}
+
+/* Input cell specific styling */
+.tt-table td.input-cell {
+  background: rgba(187, 134, 252, 0.4) !important;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 700;
+  font-size: 1.3rem;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  border-left: 3px solid rgba(187, 134, 252, 0.5);
+}
+
+.tt-table td.input-cell:hover {
+  background: rgba(187, 134, 252, 0.6) !important;
+  transform: scale(1.15);
+  box-shadow: 0 0 12px rgba(187, 134, 252, 0.6);
+}
+
+.tt-table tbody tr {
+  animation: fadeSlideIn 0.3s forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger animation for rows */
+.tt-table tbody tr:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.tt-table tbody tr:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.tt-table tbody tr:nth-child(3) {
+  animation-delay: 0.15s;
+}
+
+.tt-table tbody tr:nth-child(4) {
+  animation-delay: 0.2s;
+}
+
+.tt-table tbody tr:nth-child(5) {
+  animation-delay: 0.25s;
+}
+
+.tt-table tbody tr:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.tt-table tbody tr:nth-child(7) {
+  animation-delay: 0.35s;
+}
+
+.tt-table tbody tr:nth-child(8) {
+  animation-delay: 0.4s;
+}
+
+.tt-table tbody tr:nth-child(9) {
+  animation-delay: 0.45s;
+}
+
+.tt-table tbody tr:nth-child(10) {
+  animation-delay: 0.5s;
+}
+
+.tt-table tbody tr:nth-child(11) {
+  animation-delay: 0.55s;
+}
+
+.tt-table tbody tr:nth-child(12) {
+  animation-delay: 0.6s;
+}
+
+.tt-table tbody tr:nth-child(13) {
+  animation-delay: 0.65s;
+}
+
+.tt-table tbody tr:nth-child(14) {
+  animation-delay: 0.7s;
+}
+
+.tt-table tbody tr:nth-child(15) {
+  animation-delay: 0.75s;
+}
+
+.tt-table tbody tr:nth-child(16) {
+  animation-delay: 0.8s;
+}
+
+.tt-table tbody tr:nth-child(17) {
+  animation-delay: 0.85s;
+}
+
+.tt-table tbody tr:nth-child(18) {
+  animation-delay: 0.9s;
+}
+
+.tt-table tbody tr:nth-child(19) {
+  animation-delay: 0.95s;
+}
+
+.tt-table tbody tr:nth-child(20) {
+  animation-delay: 1s;
+}
+
+.tt-table tbody tr:nth-child(21) {
+  animation-delay: 1.05s;
+}
+
+.tt-table tbody tr:nth-child(22) {
+  animation-delay: 1.1s;
+}
+
+.tt-table tbody tr:nth-child(23) {
+  animation-delay: 1.15s;
+}
+
+.tt-table tbody tr:nth-child(24) {
+  animation-delay: 1.2s;
+}
+
+.tt-table tbody tr:nth-child(25) {
+  animation-delay: 1.25s;
+}
+
+.tt-table tbody tr:nth-child(26) {
+  animation-delay: 1.3s;
+}
+
+.tt-table tbody tr:nth-child(27) {
+  animation-delay: 1.35s;
+}
+
+.tt-table tbody tr:nth-child(28) {
+  animation-delay: 1.4s;
+}
+
+.tt-table tbody tr:nth-child(29) {
+  animation-delay: 1.45s;
+}
+
+.tt-table tbody tr:nth-child(30) {
+  animation-delay: 1.5s;
+}
+
+.tt-table tbody tr:nth-child(31) {
+  animation-delay: 1.55s;
+}
+
+.tt-table tbody tr:nth-child(32) {
+  animation-delay: 1.6s;
 }

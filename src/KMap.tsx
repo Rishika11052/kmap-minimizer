@@ -64,44 +64,46 @@ const KMap: React.FC<KMapProps> = ({
 
   return (
     <div className="kmap-container">
-      <table className="kmap-table">
-        <thead>
-          <tr>
-            <th></th>
-            {colLabels.map((label, i) => (
-              <th key={i} className="kmap-label-col">
-                {label}
-              </th>
-            ))}
-          </tr>
-        </thead>
-
-        <tbody>
-          {map.map((row, rIdx) => (
-            <tr key={rIdx}>
-              <th className="kmap-label-row">
-                {rowLabels[rIdx]}
-              </th>
-              {row.map((cell, cIdx) => (
-                <td
-                  key={cIdx}
-                  className={`kmap-cell ${
-                    highlight === "SOP" && cell === "1"
-                      ? "highlight"
-                      : ""
-                  } ${
-                    highlight === "POS" && cell === "0"
-                      ? "highlight-pos"
-                      : ""
-                  }`}
-                >
-                  {cell}
-                </td>
+      <div className="kmap-table-wrapper">
+        <table className="kmap-table">
+          <thead>
+            <tr>
+              <th></th>
+              {colLabels.map((label, i) => (
+                <th key={i} className="kmap-label-col">
+                  {label}
+                </th>
               ))}
+            </tr>
+          </thead>
+
+          <tbody>
+            {map.map((row, rIdx) => (
+              <tr key={rIdx}>
+                <th className="kmap-label-row">
+                  {rowLabels[rIdx]}
+                </th>
+                {row.map((cell, cIdx) => (
+                  <td
+                    key={cIdx}
+                    className={`kmap-cell ${
+                      highlight === "SOP" && cell === "1"
+                        ? "highlight"
+                        : ""
+                    } ${
+                      highlight === "POS" && cell === "0"
+                        ? "highlight-pos"
+                        : ""
+                    }`}
+                  >
+                    {cell}
+                  </td>
+                ))}
             </tr>
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 };
