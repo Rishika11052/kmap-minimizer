@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import "./css/truthtable.css";
 
 interface TruthTableInputProps {
@@ -33,6 +33,13 @@ const TruthTableInput: React.FC<TruthTableInputProps> = ({
   const [outputValues, setOutputValues] = useState(() =>
     initialValues.length > 0 ? initialValues : Array(4).fill("0")
   );
+
+  // Initialize context with default values on mount
+  useEffect(() => {
+    if (initialValues.length === 0 && onValuesChange) {
+      onValuesChange(Array(4).fill("0"));
+    }
+  }, []); // Run only once on mount
 
   // Generate rows based on current number of variables
   const rows = useMemo(() => generateRows(numVariables), [numVariables]);
