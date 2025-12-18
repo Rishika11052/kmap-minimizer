@@ -1,20 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
-/* Typography */
-body {
-  font-family: 'Roboto', sans-serif;
-}
-
-h1,
-h2,
-h3 {
-  font-family: 'Comfortaa', cursive;
-}
-
 /* Main title styling */
 .App>h1 {
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: normal;
   color: white;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7),
     0 0 20px rgba(0, 0, 0, 0.5);
@@ -68,7 +55,6 @@ button {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
-  font-family: 'Roboto', sans-serif;
 }
 
 button:hover {
@@ -134,7 +120,6 @@ button.compute-btn:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Roboto', sans-serif;
 }
 
 @media (max-width: 600px) {
@@ -216,9 +201,8 @@ button.compute-btn:hover {
 .back-btn {
   background-color: #f44336;
   /* red */
-  font-family: 'Comfortaa', cursive;
+  font-family: 'Times New Roman', Times, serif;
   font-size: large;
-  font-weight: 600;
 }
 
 .back-btn:hover {
@@ -245,7 +229,7 @@ button.compute-btn:hover {
 
 .verilog-screen h3 {
   font-size: 1.8rem;
-  font-weight: 800;
+  font-weight: normal;
   color: white;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
@@ -259,7 +243,7 @@ button.compute-btn:hover {
 
 .kmap-screen h3 {
   font-size: 1.8rem;
-  font-weight: 800;
+  font-weight: normal;
   color: white;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
