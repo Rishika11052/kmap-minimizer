@@ -1,15 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* truthtable.css */
 .App{
   text-align: center;
-  /* font-family: Arial, sans-serif; */
   background-image: url('/fullBackground2.png'); 
-  min-height: 100vh;
-  padding: 20px;
-  color: #fffdfd;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
- 
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 button:hover {
